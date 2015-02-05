@@ -9,18 +9,18 @@ febData$dateTime <- strptime(paste(febData[,"Date"],febData[,"Time"]),format="%d
 # Initiate output file
 png("plot4.png",width=480,height=480,units="px")
 
-par(mfrow=c(2,2))
+par(mfcol=c(2,2))
 # Top left
 pl1 <- plot(febData$dateTime,febData$Global_active_power,type="l",main="",xlab="",ylab="Global Active Power") 
 pl1
-# Top right
-pl2 <- plot(febData$dateTime,febData$Voltage,type="l",main="",xlab="datetime",ylab="Voltage")
-pl2
 # Bottom left
-pl3 <- plot(febData$dateTime,febData$Sub_metering_1,type="l",main="",xlab="",ylab="Energy sub metering")
-pl3 <- lines(febData$dateTime,febData$Sub_metering_2,col="red")
-pl3 <- lines(febData$dateTime,febData$Sub_metering_3,col="blue")
-pl3 <- legend("topright",names(febData)[7:9],col=c("black","red","blue"),lty=1,bty="n")
+pl2 <- plot(febData$dateTime,febData$Sub_metering_1,type="l",main="",xlab="",ylab="Energy sub metering")
+pl2 <- lines(febData$dateTime,febData$Sub_metering_2,col="red")
+pl2 <- lines(febData$dateTime,febData$Sub_metering_3,col="blue")
+pl2 <- legend("topright",names(febData)[7:9],col=c("black","red","blue"),lty=1,bty="n")
+pl2
+# Top right
+pl3 <- plot(febData$dateTime,febData$Voltage,type="l",main="",xlab="datetime",ylab="Voltage")
 pl3
 # Bottom right
 pl4 <- plot(febData$dateTime,febData$Global_reactive_power,type="l",main="",xlab="datetime",ylab="Global_reactive_power") 
